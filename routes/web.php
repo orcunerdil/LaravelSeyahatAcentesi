@@ -14,9 +14,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home2', function () {
     return view('welcome');
 });
+
+Route::redirect('/anasayfa', '/home');
 
 Route::get('/home', [HomeController::class, 'index']);
 
