@@ -17,10 +17,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/home2', function () {
     return view('welcome');
 });
+//anasayfa diye bir şey tanımlıyoruz onu yazdıgında home a gitsin
+Route::redirect('/anasayfa', '/home')->name('anasayfa');
 
-Route::redirect('/anasayfa', '/home');
+Route::get('/', function () {
+    return view('home.index');
+});
 
-Route::get('/home', [HomeController::class, 'index']);
+
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/test/{id}/{name}', [HomeController::class, 'test'])->whereNumber('id')->whereAlpha('name')->name('test');
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
