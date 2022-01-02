@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Kategori Listesi')
+@section('title', 'Ürün Listesi')
 
 @section('content')
     <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
@@ -9,7 +9,7 @@
                 <li><a href="#">
                         <em class="fa fa-home"></em>
                     </a></li>
-                <li class="active">Kategoriler</li>
+                <li class="active">Ürünler</li>
 
 
             </ol>
@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-lg-3">
                 <br>
-                <a href="{{route('admin_category_add')}}" type="button" class="btn btn-block btn-info" style="width:min-content" >Kategori Ekle</a>
+                <a href="{{route('admin_product_add')}}" type="button" class="btn btn-block btn-info" style="width:min-content" >Ürün Ekle</a>
 
             </div>
         </div><!--/.row-->
@@ -27,7 +27,7 @@
 
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Kategori Listesi</h3>
+                <h3 class="card-title">Ürün Listesi</h3>
 
             </div>
             <div class="card-body">
@@ -35,8 +35,10 @@
                     <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Parent</th>
+                        <th>Category</th>
                         <th>Title</th>
+                        <th>Price</th>
+                        <th>Image</th>
                         <th>Status</th>
                         <th>Edit</th>
                         <th>Delete</th>
@@ -49,11 +51,16 @@
 
                     <tr>
                         <td>{{$rs->id}}</td>
-                        <td>{{$rs->parent_id}}</td>
+                        <td>{{$rs->category_id}}</td>
                         <td>{{$rs->title}}</td>
+                        <td>{{$rs->price}}</td>
+                        <td align="center">@if($rs->image)
+                                <img src="{{Storage::url($rs->image)}}" height="30" alt="">
+                            @endif
+                        </td>
                         <td>{{$rs->status}}</td>
-                        <td><a href="{{route('admin_category_edit', ['id' => $rs->id])}}">Edit</a></td>
-                        <td><a href="{{route('admin_category_delete',['id' => $rs->id])}}" onclick="return confirm('Silme İsleminden Emin Misiniz ?')" >Delete</a></td>
+                        <td><a href="{{route('admin_product_edit', ['id' => $rs->id])}}">Edit</a></td>
+                        <td><a href="{{route('admin_product_delete',['id' => $rs->id])}}" onclick="return confirm('Silme İsleminden Emin Misiniz ?')" >Delete</a></td>
                     </tr>
                     @endforeach
 

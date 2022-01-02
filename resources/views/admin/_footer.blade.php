@@ -13,6 +13,8 @@
 <script src="{{asset('assets')}}/admin/js/easypiechart-data.js"></script>
 <script src="{{asset('assets')}}/admin/js/bootstrap-datepicker.js"></script>
 <script src="{{asset('assets')}}/admin/js/custom.js"></script>
+
+
 <script>
     window.onload = function () {
         var chart1 = document.getElementById("line-chart").getContext("2d");

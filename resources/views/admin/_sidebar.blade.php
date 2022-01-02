@@ -19,7 +19,7 @@
     <ul class="nav menu">
         <li class="active"><a href="{{route('adminhome')}}"><em class="fa fa-dashboard">&nbsp;</em> Anasayfa</a></li>
         <li><a href="{{route('admin_category')}}"><em class="fa fa-navicon"">&nbsp;</em> Kategoriler</a></li>
-        <li><a href="#"><em class="fa fa-bar-chart">&nbsp;</em> Ürünler</a></li>
+        <li><a href="{{route('admin_products')}}"><em class="fa fa-bar-chart">&nbsp;</em> Ürünler</a></li>
         <li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> UI Elements</a></li>
         <li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>
         <li class="parent "><a data-toggle="collapse" href="#sub-item-1">
