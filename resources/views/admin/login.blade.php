@@ -33,7 +33,7 @@
                             </label>
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Giriş</button>
-                        <a href="index.html" class="btn btn-primary">Login</a></fieldset>
+
                 </form>
             </div>
         </div>

@@ -1,11 +1,14 @@
 @extends('layouts.admin')
 
 @section('title', 'Add Product')
-
-
+@section('javascript')
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+@endsection
 @section('content')
 
-    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main" xmlns="http://www.w3.org/1999/html">
         <div class="row">
             <ol class="breadcrumb">
                 <li><a href="#">
@@ -35,12 +38,12 @@
                     @csrf
                     <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <label class="form-label" >Parent</label>
+                            <label class="form-label" >Category</label>
                             <select class="form-control select 2" name="category_id" style="width: 100%">
 
                                 @foreach($datalist as $rs)
 
-                                    <option value="{{$rs->id}}">{{$rs->title}}</option>
+                                    <option value="{{$rs->id}}">{{\App\Http\Controllers\Admin\CategoryController::getParentTree($rs,$rs->title)}}</option>
                                 @endforeach
 
                             </select>
@@ -72,9 +75,25 @@
                         </div>
                         <div class="form-outline mb-4">
                             <label class="form-label" >Detail</label>
-                            <input  type="text"   name="detail" class="form-control" />
+                            <textarea id="detail" name="detail"class="form-control" ></textarea>
+                            <script>
+                                $('#detail').summernote({
 
+                                    tabsize: 2,
+                                    height: 120,
+                                    toolbar: [
+                                        ['style', ['style']],
+                                        ['font', ['bold', 'underline', 'clear']],
+                                        ['color', ['color']],
+                                        ['para', ['ul', 'ol', 'paragraph']],
+                                        ['table', ['table']],
+                                        ['insert', ['link', 'picture', 'video']],
+                                        ['view', ['fullscreen', 'codeview', 'help']]
+                                    ]
+                                });
+                            </script>
                         </div>
+
                         <div class="form-outline mb-4">
                             <label class="form-label" >Slug</label>
                             <input type="text" name="slug" class="form-control" />

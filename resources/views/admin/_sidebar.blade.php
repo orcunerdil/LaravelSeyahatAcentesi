@@ -7,6 +7,7 @@
             @auth
             <div class="profile-usertitle-name">{{Auth::user()->name}}</div>
             <div class="profile-usertitle-status"><span class="indicator label-success"></span>Online</div>
+            @endauth
         </div>
         <div class="clear"></div>
     </div>
@@ -20,7 +21,8 @@
         <li class="active"><a href="{{route('adminhome')}}"><em class="fa fa-dashboard">&nbsp;</em> Anasayfa</a></li>
         <li><a href="{{route('admin_category')}}"><em class="fa fa-navicon"">&nbsp;</em> Kategoriler</a></li>
         <li><a href="{{route('admin_products')}}"><em class="fa fa-bar-chart">&nbsp;</em> Ürünler</a></li>
-        <li><a href="elements.html"><em class="fa fa-toggle-off">&nbsp;</em> UI Elements</a></li>
+        <li><a href="{{route('admin_message')}}"><em class="fa fa-bar-chart">&nbsp;</em> Mesajlar</a></li>
+        <li><a href="{{route('admin_setting')}}"><em class="fa fa-toggle-off">&nbsp;</em>Setting</a></li>
         <li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>
         <li class="parent "><a data-toggle="collapse" href="#sub-item-1">
                 <em class="fa fa-navicon">&nbsp;</em> Multilevel <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
@@ -39,15 +41,12 @@
         </li>
         {{--<li><a href="{{route('admin_logout')}}"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>--}}
 
-        <form method="POST" action="{{ route('logout') }}">
+
             @csrf
-            <x-jet-dropdown-link href="{{ route('logout') }}"
-                                 onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                {{ __('Log Out') }}
-            </x-jet-dropdown-link>
-        </form>
-        @endauth
+       @auth
+        <a href="{{route('logout')}}" class="d-block">Logout</a>
+            @endauth
+
         </a></li>
     </ul>
 </div><!--/.sidebar-->

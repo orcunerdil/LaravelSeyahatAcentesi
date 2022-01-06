@@ -1,15 +1,24 @@
+@php
+    $setting= \App\Http\Controllers\HomeController::getsetting()
+@endphp
+
+
 @extends('layouts.home')
 
-@section('title', 'About Us')
+@section('title','Hakkımızda')
+
+@section('description'){{$setting->description}}@endsection
+@section('keywords'){{$setting->keywords}}@endsection
 
 @section('content')
-<div class="col-sm-12">
-    <h1>About Us</h1>
+    <section class="main-content">
+        <div class="row">
 
-    aaaaaaaaaaaaaaaaaaa
-    <br>
-    bbbbbbbbbbbbbbbbbbb<br>
-    ccccccccccccccccc<br>
+            <div class="span12">
+               {{-- <h4>Hakkımızda</h4>--}}
+                {!!$setting->aboutus!!}
+            </div>
+        </div>
+    </section>
 
-</div>
 @endsection

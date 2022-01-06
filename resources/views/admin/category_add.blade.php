@@ -38,11 +38,10 @@
                                 <option value="1">Ana Kategori</option>
                                 @foreach($datalist as $rs)
 
-                                <option value="{{$rs->id}}">{{$rs->title}}</option>
+                                <option value="{{$rs->id}}">{{\App\Http\Controllers\Admin\CategoryController::getParentTree($rs,$rs->title)}}</option>
                                 @endforeach
 
                             </select>
-
                         </div>
                         <div class="form-outline mb-4">
                             <label class="form-label" >Title</label>

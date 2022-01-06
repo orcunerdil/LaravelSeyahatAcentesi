@@ -49,7 +49,9 @@
 
                     <tr>
                         <td>{{$rs->id}}</td>
-                        <td>{{$rs->parent_id}}</td>
+                        <td>
+                            {{\App\Http\Controllers\Admin\CategoryController::getParentTree($rs, $rs->title)}}
+                        </td>
                         <td>{{$rs->title}}</td>
                         <td>{{$rs->status}}</td>
                         <td><a href="{{route('admin_category_edit', ['id' => $rs->id])}}">Edit</a></td>

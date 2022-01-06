@@ -15,11 +15,29 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    protected $appends = [
+      'getParentsTree'
+    ];
+
+    public static function getParentTree($category,$title)
+    {       //Ana kategoriyse
+        if($category->parent_id==1)
+        {
+            return $title;
+        }
+        //Ana kategori değilse altlarını bulmak için
+        $parent=Category::find($category->parent_id);
+        $title=$parent->title . '>'.$title;
+
+        return CategoryController::getParentTree($parent,$title);
+
+    }
     public function index()
     {
 
         //$datalist = DB::select('select * from categories')->get();
-        $datalist= DB::table('categories')->get();
+        $datalist= Category::with('children')->get();
         return view('admin.category', ['datalist' => $datalist]);
 
     }
@@ -31,7 +49,7 @@ class CategoryController extends Controller
      */
     public function add()
     {
-        $datalist= DB::table('categories')->get()->where('parent_id',1);
+        $datalist= Category::with('children')->get();
         //print_r($datalist);
         //exit();
         return view('admin.category_add', ['datalist' => $datalist]);
@@ -46,7 +64,7 @@ class CategoryController extends Controller
     public function create(Request $request)
     {
 
-        echo $name=$request->input('title');
+       // echo $name=$request->input('title');
 
         DB::table('categories')->insert([
            'parent_id'=> $request->input('parent_id'),
@@ -90,8 +108,8 @@ class CategoryController extends Controller
     public function edit(Category $category,$id)
     {
         $data=Category::find($id);
-        $datalist= DB::table('categories')->get()->where('parent_id',1);
-
+       // $datalist= DB::table('categories')->get()->where('parent_id',1);
+        $datalist= Category::with('children')->get();
         return view('admin.category_edit',['data'=>$data,'datalist'=>$datalist]);
 
     }
@@ -127,6 +145,7 @@ class CategoryController extends Controller
     public function destroy(Category $category,$id)
     {
         DB::Table('categories')->where('id','=',$id)->delete();
+
         return redirect()->route('admin_category');
     }
 }
