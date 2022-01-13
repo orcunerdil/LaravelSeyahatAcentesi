@@ -18,6 +18,7 @@
         <div class="login-panel panel panel-default">
             <div class="panel-heading">Log in</div>
             <div class="panel-body">
+                @include('home.message')
                 <form role="form" action="{{route('adminlogincheck')}}" method="post">
                     @csrf
                     <fieldset>

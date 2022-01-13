@@ -25,17 +25,17 @@
         <li><a href="{{route('admin_setting')}}"><em class="fa fa-toggle-off">&nbsp;</em>Setting</a></li>
         <li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>
         <li class="parent "><a data-toggle="collapse" href="#sub-item-1">
-                <em class="fa fa-navicon">&nbsp;</em> Multilevel <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+                <em class="fa fa-navicon">&nbsp;</em> Rezervasyon Menüsü<span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
             <ul class="children collapse" id="sub-item-1">
-                <li><a class="" href="#">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Sub Item 1
+                <li><a class="" href="{{route('admin_orders')}}">
+                        <span class="fa fa-arrow-right">&nbsp;</span> Tüm Rezervasyonlar
                     </a></li>
                 <li><a class="" href="#">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Sub Item 2
+                        <span class="fa fa-arrow-right">&nbsp;</span> Yeni Rezervasyonlar
                     </a></li>
                 <li><a class="" href="#">
-                        <span class="fa fa-arrow-right">&nbsp;</span> Sub Item 3
+                        <span class="fa fa-arrow-right">&nbsp;</span> Onaylanan Rezervasyonlar
                     </a></li>
             </ul>
         </li>

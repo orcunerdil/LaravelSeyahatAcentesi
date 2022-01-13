@@ -1,3 +1,4 @@
+<div id="wrapper" class="container">
 <section  class="homepage-slider" id="home-slider">
     <div class="flexslider">
         <ul class="slides">

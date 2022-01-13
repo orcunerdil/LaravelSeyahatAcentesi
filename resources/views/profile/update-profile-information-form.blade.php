@@ -24,15 +24,15 @@
                                     reader.readAsDataURL($refs.photo.files[0]);
                             " />
 
-                {{--<x-jet-label for="photo" value="{{ __('Photo') }}" />--}}
-                Photo
+                <x-jet-label for="photo" value="{{ __('Photo') }}" />
+
                 <!-- Current Profile Photo -->
                 <div class="mt-2" x-show="! photoPreview">
                     <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
                 </div>
 
                 <!-- New Profile Photo Preview -->
-                <div class="mt-2" x-show="photoPreview">
+                <div class="mt-2" x-show="photoPreview" style="display: none;">
                     <span class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center"
                           x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
                     </span>
@@ -54,30 +54,24 @@
 
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
-            Name
-            {{--<x-jet-label for="name" value="{{ __('Name') }}" />--}}
+            <x-jet-label for="name" value="{{ __('Name') }}" />
             <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
             <x-jet-input-error for="name" class="mt-2" />
         </div>
 
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
-            Email
-            {{--<x-jet-label for="email" value="{{ __('Email') }}" />--}}
+            <x-jet-label for="email" value="{{ __('Email') }}" />
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
         </div>
-
         <div class="col-span-6 sm:col-span-4">
-            Phone
-            {{--<x-jet-label for="email" value="{{ __('Email') }}" />--}}
+            <x-jet-label for="phone" value="{{ __('Telefon') }}" />
             <x-jet-input id="phone" type="text" class="mt-1 block w-full" wire:model.defer="state.phone" />
             <x-jet-input-error for="phone" class="mt-2" />
         </div>
-
         <div class="col-span-6 sm:col-span-4">
-            Address
-            {{--<x-jet-label for="email" value="{{ __('Email') }}" />--}}
+            <x-jet-label for="address" value="{{ __('Adres') }}" />
             <x-jet-input id="address" type="text" class="mt-1 block w-full" wire:model.defer="state.address" />
             <x-jet-input-error for="address" class="mt-2" />
         </div>

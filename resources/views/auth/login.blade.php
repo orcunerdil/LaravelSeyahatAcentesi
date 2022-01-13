@@ -11,8 +11,8 @@
                 {{ session('status') }}
             </div>
         @endif
-
-        <form method="POST" action="{{ route('login') }}">
+@include('home.message')
+        <form method="POST" action="{{ route('adminlogincheck') }}">
             @csrf
 
             <div>

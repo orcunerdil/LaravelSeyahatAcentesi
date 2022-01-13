@@ -37,16 +37,15 @@
 <body>
 
 @include('home._header')
-@include('home._slider')
-
+{{--//@include('home._slider')--}}
 @section('content')
-
 
 @show
 
 
-@include('home._footer')
-@yield('footerjs')
 
+@yield('footerjs')
+@include('home._footer')
 </body>
+
 </html>

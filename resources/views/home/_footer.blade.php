@@ -26,12 +26,13 @@
 
 </head>
 </html>
+<div id="wrapper" class="container">
 <section id="footer-bar">
     <div class="row">
         <div class="span3">
             <h4>Navigation</h4>
             <ul class="nav">
-                <li><a href="./index.html">Homepage</a></li>
+                <li><a href="{{route('home')}}">Homepage</a></li>
                 <li><a href="{{route('aboutus')}}">About Us</a></li>
                 <li><a href="{{route('contact')}}">Contac Us</a></li>
                 <li><a href="./contact.html">FAQ</a></li>
@@ -65,14 +66,13 @@
                        @if($setting->instagram !=null)<li><a href="{{$setting->instagram }}"target="_blank" alt="İnstagram" class="fa fa-instagram "></a></li>@endif
                </ul>
             </div>
-
         </div>
     </div>
 </section>
 <section id="copyright">
     <span>Copyright 2022 {{$setting->company}}| All right reserved.</span>
 </section>
-</div>
+
 <script src=""></script>
 <script src="{{asset('assets')}}/themes/js/common.js"></script>
 <script src="{{asset('assets')}}/themes/js/jquery.flexslider-min.js"></script>

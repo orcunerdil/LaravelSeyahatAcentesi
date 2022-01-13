@@ -18,7 +18,7 @@
 
 
 
-
+        <div id="wrapper" class="container">
         <section class="main-content">
             <div class="row">
                 <div class="span3">
@@ -26,7 +26,7 @@
                     <h4 class="title"><span class="text"><strong>Üye</strong> Paneli</span></h4>
                     <ul>
                         <li><a href="{{'myprofile'}}">My Profile</a></li>
-                        <li><a href="">Siparişlerim</a></li>
+                        <li><a href="{{route('user_orders')}}">Siparişlerim</a></li>
                         <li><a href="">Mesajlar</a></li>
                         <li><a href="{{route('logout')}}">Çıkış</a></li>
 
@@ -38,7 +38,7 @@
                 </div>
             </div>
         </section>
-
+        </div>
 
 
 @endsection

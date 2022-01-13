@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Category;
+use App\Models\Image;
 use App\Models\Product;
 use App\Models\Setting;
 use Hamcrest\Core\Set;
@@ -32,24 +33,62 @@ class HomeController extends Controller
     public function index()
     {
         $setting =  Setting::first();
-        $slider= Product::select('id','title','image','price','slug')->limit(3)->get();
+        $slider= Product::select('id','title','image','price','slug')->limit(4)->get();
+        $daily= Product::select('id','title','image','price','slug')->limit(4)->inRandomOrder()->get();
+        $last= Product::select('id','title','image','price','slug')->limit(4)->orderByDesc('id')->get();
         //print_r($slider);
         //exit();
         $data= [
             'setting'=>$setting,
             'slider'=>$slider,
+            'daily'=>$daily,
+            'last'=>$last,
             'page'=>'home'
             ];
         return view('home.index',$data);
     }
    public function product($id,$slug)
-
    {
-    $data=Product::find($id);
-print_r($data);
-       exit();
 
+    $data=Product::find($id);
+    $datalist=Image::where('product_id',$id)->get();
+   // print_r($data);
+     //  exit();
+       return view('home.product_detail',['data'=>$data,'datalist'=>$datalist]);
    }
+
+   public function getproduct(Request $request)
+   {
+       $search=$request->input('search');
+
+       $count=Product::where('title','like','%'.$search.'%')->get()->count();
+       if($count==1)
+       {
+           $data=Product::where('title','like','%'.$search.'%')->first();
+           return redirect()->route('product',['id'=>$data->id,'slug'=>$data->slug]);
+
+       }
+       else
+       {
+           return redirect()->route('productlist',['search'=>$search]);
+       }
+   }
+
+   public function productlist($search)
+   {
+       $datalist=Product::where('title','like','%'.$search.'%')->get();
+       return view ('home.search_products',['search'=>$search,'datalist'=>$datalist]);
+   }
+
+    public function categoryproducts($id,$slug)
+
+    {
+        $data=Category::find($id);
+        $datalist=Product::where('category_id',$id)->get();
+        #print_r($data);
+        #exit();
+        return view('home.category_products',['data'=>$data,'datalist'=>$datalist]);
+    }
 
     public function aboutus()
 

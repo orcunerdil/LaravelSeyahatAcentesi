@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\MessageController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,11 +38,22 @@ Route::get('/faq', [HomeController::class, 'faq'])->name('faq');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::post('/sendmessage', [HomeController::class, 'sendmessage'])->name('sendmessage');
 Route::get('/product/{id}/{slug}', [HomeController::class, 'product'])->name('product');
+Route::get('/categoryproducts/{id}/{slug}', [HomeController::class, 'categoryproducts'])->name('categoryproducts');
+Route::post('/getproduct', [HomeController::class, 'getproduct'])->name('getproduct');
+Route::get('/getproduct/{search}', [HomeController::class, 'productlist'])->name('productlist');
 
 Route::get('/test/{id}/{name}', [HomeController::class, 'test'])->whereNumber('id')->whereAlpha('name')->name('test');
+/*Route::get('/addtocart/{id}/{name}', [HomeController::class, 'test'])->whereNumber('id')->whereAlpha('name')->name('test');*/
 
 //ADMIN
 Route::middleware('auth')->prefix('admin')->group(function () {
+
+    #Admin role
+
+    Route::middleware('admin')->group(function (){
+
+
+
     Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('adminhome');
         #Category
     Route::get('category', [\App\Http\Controllers\Admin\CategoryController::class, 'index'])->name('admin_category');
@@ -87,6 +99,18 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('setting', [\App\Http\Controllers\Admin\SettingController::class, 'index'])->name('admin_setting');
     Route::post('setting/update', [\App\Http\Controllers\Admin\SettingController::class, 'update'])->name('admin_setting_update');
 
+    Route::prefix('order')->group(function (){
+
+        Route::get('/', [\App\Http\Controllers\Admin\OrderController::class, 'index'])->name('admin_orders');
+        Route::post('create', [\App\Http\Controllers\Admin\OrderController::class, 'create'])->name('admin_order_add');
+        Route::post('store', [\App\Http\Controllers\Admin\OrderController::class, 'store'])->name('admin_order_store');
+        Route::get('edit/{id}', [\App\Http\Controllers\Admin\OrderController::class, 'edit'])->name('admin_order_edit');
+        Route::post('update/{id}', [\App\Http\Controllers\Admin\OrderController::class, 'update'])->name('admin_order_update');
+        Route::post('itemupdate/{id}', [\App\Http\Controllers\Admin\OrderController::class, 'itemupdate'])->name('admin_order_item_update');
+        Route::get('delete/{id}', [\App\Http\Controllers\Admin\OrderController::class, 'destroy'])->name('admin_order_delete');
+        Route::get('show/{id}', [\App\Http\Controllers\Admin\OrderController::class, 'show'])->name('admin_order_show');
+    });
+    });
 });
 
 Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(function(){
@@ -98,6 +122,18 @@ Route::middleware('auth')->prefix('myaccount')->namespace('myaccount')->group(fu
 Route::middleware('auth')->prefix('user')->namespace('user')->group(function(){
 
     Route::get('/profile',[UserController::class, 'index'])->name('userprofile');
+
+    #Order
+    Route::prefix('order')->group(function (){
+
+    Route::get('/', [OrderController::class, 'index'])->name('user_orders');
+    Route::post('create', [OrderController::class, 'create'])->name('user_order_add');
+    Route::post('store', [OrderController::class, 'store'])->name('user_order_store');
+    Route::get('edit/{id}', [OrderController::class, 'edit'])->name('user_order_edit');
+    Route::post('update/{id}', [OrderController::class, 'update'])->name('user_order_update');
+    Route::get('delete/{id}', [OrderController::class, 'destroy'])->name('user_order_delete');
+    Route::get('show/{id}', [OrderController::class, 'show'])->name('user_order_show');
+});
 
 });
 

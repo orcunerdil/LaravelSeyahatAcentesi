@@ -11,14 +11,15 @@
 @section('keywords'){{$setting->keywords}}@endsection
 
 @section('content')
+    <div id="wrapper" class="container">
     <section class="main-content">
-        <div class="row">
+
 
             <div class="span12">
                {{-- <h4>Hakkımızda</h4>--}}
                 {!!$setting->references!!}
             </div>
-        </div>
-    </section>
 
+    </section>
+    </div>
 @endsection

@@ -11,6 +11,7 @@
 @section('keywords'){{$setting->keywords}}@endsection
 
 @section('content')
+    <div id="wrapper" class="container">
     <section class="main-content">
         <div class="row">
 
@@ -20,5 +21,5 @@
             </div>
         </div>
     </section>
-
+    </div>
 @endsection
