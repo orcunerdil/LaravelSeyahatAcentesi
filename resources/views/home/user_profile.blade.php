@@ -25,7 +25,7 @@
 
                     <h4 class="title"><span class="text"><strong>Üye</strong> Paneli</span></h4>
                     <ul>
-                        <li><a href="{{'myprofile'}}">My Profile</a></li>
+                        <li><a href="{{'myprofile'}}">Profilim</a></li>
                         <li><a href="{{route('user_orders')}}">Siparişlerim</a></li>
                         <li><a href="">Mesajlar</a></li>
                         <li><a href="{{route('logout')}}">Çıkış</a></li>

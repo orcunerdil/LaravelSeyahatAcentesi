@@ -34,7 +34,7 @@
                                                 <a href="{{route('product',['id'=>$rs->id,'slug'=>$rs->slug])}}"><img style="height: 200px" alt="" src="{{Storage::url($rs->image)}}"></a><br/>
                                                 {{--<p><a href="product_detail.html"><img src="{{Storage::url($rs->image)}}" alt="" /></a></p>--}}
                                                 <a href="product_detail.html" class="title">{{$rs->title}}</a><br/>
-                                                <a href="products.html" class="category">Commodo consequat</a>
+                                                {{--<a href="products.html" class="category">Commodo consequat</a>--}}
                                                 <p class="price">{{$rs->price.' TL'}}</p>
                                             </div>
                                         </li>
@@ -48,7 +48,7 @@
                                             <div class="product-box">
                                                 <a href="{{route('product',['id'=>$rs->id,'slug'=>$rs->slug])}}"><img style="height: 200px" alt="" src="{{Storage::url($rs->image)}}"></a><br/>
                                                 <a href="product_detail.html" class="title">{{$rs->title}}</a><br/>
-                                                <a href="products.html" class="category">Quis nostrud</a>
+                                                {{--<a href="products.html" class="category">Quis nostrud</a>--}}
                                                 <p class="price">{{$rs->price.' TL'}}</p>
                                             </div>
                                         </li>
@@ -78,7 +78,7 @@
                                                 <span class="sale_tag"></span>
                                                 <p><a href="{{route('product',['id'=>$rs->id,'slug'=>$rs->slug])}}"><img src="{{Storage::url($rs->image)}}" alt="" /></a></p>
                                                 <a href="product_detail.html" class="title">{{$rs->title}}</a><br/>
-                                                <a href="products.html" class="category">Commodo consequat</a>
+                                               {{-- <a href="products.html" class="category">Commodo consequat</a>--}}
                                                 <p class="price">{{$rs->price.' TL'}}</p>
                                             </div>
                                         </li>

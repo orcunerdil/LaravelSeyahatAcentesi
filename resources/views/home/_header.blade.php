@@ -17,12 +17,12 @@
             <div class="account pull-right">
                 <ul class="user-menu">
                     @auth
-                        <a href="{{route('home')}}">Home
+                        <a href="{{route('home')}}">Anasayfa
                             <li><a href="{{route('myprofile')}}"strong class="text-uppercase">{{Auth::user()->name}}</strong></a></li>
-                            <li><a href="cart.html">Your Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
+                            {{--li><a href="cart.html">Your Cart</a></li>
+                            <li><a href="checkout.html">Checkout</a></li>--}}
 
-                            <li><a href="{{route('logout')}}">Logout</a></li>
+                            <li><a href="{{route('logout')}}">Çıkış</a></li>
                             @endauth
                             @guest
                                 <li><a href="{{route('adminlogin')}}">Giriş</a></li>

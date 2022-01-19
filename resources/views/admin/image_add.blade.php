@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="card-body">
-                    Add Category Form
+                    Görsel Ekle
                     <form role="form" action="{{route('admin_image_store',['product_id'=>$data->id])}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <!-- Email input -->
@@ -54,7 +54,7 @@
                         </div>
 
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-block mb-4">Add Image</button>
+                        <button type="submit" class="btn btn-primary btn-block mb-4">Görsel Ekle</button>
 
                     </form>
                 </div>

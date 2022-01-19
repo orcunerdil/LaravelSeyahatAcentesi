@@ -12,18 +12,18 @@
         <div class="clear"></div>
     </div>
     <div class="divider"></div>
-    <form role="search">
+    {{--<form role="search">
         <div class="form-group">
             <input type="text" class="form-control" placeholder="Search">
         </div>
-    </form>
+    </form>--}}
     <ul class="nav menu">
         <li class="active"><a href="{{route('adminhome')}}"><em class="fa fa-dashboard">&nbsp;</em> Anasayfa</a></li>
         <li><a href="{{route('admin_category')}}"><em class="fa fa-navicon"">&nbsp;</em> Kategoriler</a></li>
         <li><a href="{{route('admin_products')}}"><em class="fa fa-bar-chart">&nbsp;</em> Ürünler</a></li>
         <li><a href="{{route('admin_message')}}"><em class="fa fa-bar-chart">&nbsp;</em> Mesajlar</a></li>
-        <li><a href="{{route('admin_setting')}}"><em class="fa fa-toggle-off">&nbsp;</em>Setting</a></li>
-        <li><a href="panels.html"><em class="fa fa-clone">&nbsp;</em> Alerts &amp; Panels</a></li>
+        <li><a href="{{route('admin_setting')}}"><em class="fa fa-toggle-off">&nbsp;</em> Setting</a></li>
+        <li><a href="{{route('admin_users')}}"><em class="fa fa-toggle-off">&nbsp;</em> Üyeler</a></li>
         <li class="parent "><a data-toggle="collapse" href="#sub-item-1">
                 <em class="fa fa-navicon">&nbsp;</em> Rezervasyon Menüsü<span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
             </a>
@@ -31,12 +31,12 @@
                 <li><a class="" href="{{route('admin_orders')}}">
                         <span class="fa fa-arrow-right">&nbsp;</span> Tüm Rezervasyonlar
                     </a></li>
-                <li><a class="" href="#">
+                {{--<li><a class="" href="#">
                         <span class="fa fa-arrow-right">&nbsp;</span> Yeni Rezervasyonlar
                     </a></li>
                 <li><a class="" href="#">
                         <span class="fa fa-arrow-right">&nbsp;</span> Onaylanan Rezervasyonlar
-                    </a></li>
+                    </a></li>--}}
             </ul>
         </li>
         {{--<li><a href="{{route('admin_logout')}}"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>--}}
@@ -44,7 +44,7 @@
 
             @csrf
        @auth
-        <a href="{{route('logout')}}" class="d-block">Logout</a>
+        <a href="{{route('logout')}}" class="d-block">Çıkış</a>
             @endauth
 
         </a></li>

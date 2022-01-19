@@ -7,7 +7,7 @@
                 <img src="{{Storage::url($rs->image)}}" style="height: 530px" alt="" />
                 <div class="intro">
                     <h1>{{$rs->title}}</h1>
-                    <p><span>{{$rs->price}}</span></p>
+                    <p><span>{{$rs->price}} TL</span></p>
                    <p> <a href="{{route('product',['id'=>$rs->id,'slug'=>$rs->slug])}}" type="button" class="btn btn-warning">İncele</a></p>
                 </div>
             </li>

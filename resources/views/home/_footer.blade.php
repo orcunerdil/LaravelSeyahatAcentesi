@@ -30,33 +30,33 @@
 <section id="footer-bar">
     <div class="row">
         <div class="span3">
-            <h4>Navigation</h4>
+            <h4>Alt Menü</h4>
             <ul class="nav">
-                <li><a href="{{route('home')}}">Homepage</a></li>
-                <li><a href="{{route('aboutus')}}">About Us</a></li>
-                <li><a href="{{route('contact')}}">Contac Us</a></li>
-                <li><a href="./contact.html">FAQ</a></li>
-                <li><a href="{{route('references')}}">References</a></li>
-                <li><a href="./cart.html">Your Cart</a></li>
-                <li><a href="./register.html">Login</a></li>
+                <li><a href="{{route('home')}}">Anasayfa</a></li>
+                <li><a href="{{route('aboutus')}}">Hakkımızda</a></li>
+                <li><a href="{{route('contact')}}">Bize Ulaşın</a></li>
+                <li><a href="./contact.html">SSS</a></li>
+                <li><a href="{{route('references')}}">Referanslar</a></li>
+                {{--<li><a href="./cart.html">Your Cart</a></li>
+                <li><a href="./register.html">Login</a></li>--}}
             </ul>
         </div>
         <div class="span4">
-            <h4>My Account</h4>
+            {{--<h4>My Account</h4>
             <ul class="nav">
                 <li><a href="#">My Account</a></li>
                 <li><a href="#">Order History</a></li>
                 <li><a href="#">Wish List</a></li>
                 <li><a href="#">Newsletter</a></li>
-            </ul>
+            </ul>--}}
         </div>
         <div class="span5">
             <a class="logo" href="{{route('home')}}">
                 <p><img src="{{asset('assets')}}/themes/images/logo.png" class="site_logo" alt=""></p>
             </a>
-            <strong>Company :</strong> {{$setting->company}}<br>
-            <strong>Address :</strong> {{$setting->address}}<br>
-            <strong>Phone :</strong> {{$setting->phone}}<br>
+            <strong>Şirket :</strong> {{$setting->company}}<br>
+            <strong>Adres :</strong> {{$setting->address}}<br>
+            <strong>Telefon :</strong> {{$setting->phone}}<br>
             <strong>Fax :</strong> {{$setting->fax}}<br>
             <strong>Email :</strong> {{$setting->email}}<br><br>
             <div class="sosyal_icon">

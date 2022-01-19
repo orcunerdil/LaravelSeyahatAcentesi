@@ -80,7 +80,7 @@
                                             <input type="number" min="1"  id="quantity" class="span1" name="adet" placeholder="">
                                             <input type="hidden" name="title" value="{{$data->title}}">
                                             <input type="hidden" name="price" value="{{$data->price}}">
-                                            <button class="btn btn-inverse" type="submit">Satın Al</button>
+                                            <button class="btn btn-inverse" type="submit">Rezervasyon Yap</button>
                                         </form>
 
 
